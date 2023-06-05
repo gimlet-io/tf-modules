@@ -12,6 +12,6 @@ provider "postgresql" {
   sslmode         = "require"
   connect_timeout = 120
   superuser       = false
-  username        = var.username
-  password        = var.password
+  username        = var.admin_username
+  password        = var.admin_password
 }
