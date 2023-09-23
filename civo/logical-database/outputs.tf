@@ -1,4 +1,4 @@
-output "credentials" {
-  value = [for user in postgresql_role.app_user: "${user.name}: ${user.password}"]
+output "user_password" {
+  value = postgresql_role.app_user.password
   sensitive = true
 }
