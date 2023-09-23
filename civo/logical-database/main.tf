@@ -25,7 +25,7 @@ resource "postgresql_role" "app_user" {
 }
 
 resource "postgresql_grant" "grant" {
-  database    = azurerm_postgresql_flexible_server_database.db.name
+  database    = postgresql_database.db.name
   role        = postgresql_role.app_user.name
   schema      = "public"
   object_type = "schema"
