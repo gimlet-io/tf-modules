@@ -19,16 +19,14 @@ resource "postgresql_database" "db" {
 }
 
 resource "postgresql_role" "app_user" {
-  for_each = var.roles
-  name     = each.key
+  name     = var.user
   login    = true
   password = random_password.password.result
 }
 
 resource "postgresql_grant" "grant" {
-  for_each    = var.roles
-  database    = postgresql_database.db.name
-  role        = each.key
+  database    = azurerm_postgresql_flexible_server_database.db.name
+  role        = postgresql_role.app_user.name
   schema      = "public"
   object_type = "schema"
   privileges  = []
