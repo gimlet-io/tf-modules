@@ -9,7 +9,7 @@ terraform {
 resource "postgresql_database" "db" {
   name              = var.database
   template          = "template0"
-  lc_collate        = "DEFAULT"
+  lc_collate        = "en_US.UTF-8"
   connection_limit  = 100
 }
 
